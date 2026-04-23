@@ -21,15 +21,15 @@ export default function TeamForm({ action, member }: Props) {
     <form action={action} className="flex flex-col gap-5">
       {/* Photo upload */}
       <div className="flex flex-col gap-2">
-        <label className="section-label text-navy-300">Zdjęcie</label>
+        <label className="section-label text-ink-muted">Zdjęcie</label>
         <div className="flex gap-6 items-start">
           {preview ? (
-            <div className="relative w-24 h-32 bg-navy-800 overflow-hidden shrink-0">
+            <div className="relative w-24 h-32 bg-ink-deep overflow-hidden shrink-0 border border-rule">
               <Image src={preview} alt="Podgląd zdjęcia" fill className="object-cover" sizes="96px" unoptimized />
             </div>
           ) : (
             <div
-              className="w-24 h-32 bg-navy-800 border-2 border-dashed border-navy-600 flex flex-col gap-2 items-center justify-center text-navy-500 text-xs cursor-pointer shrink-0 hover:bg-navy-700 transition-colors"
+              className="w-24 h-32 bg-ink-deep border-2 border-dashed border-rule flex flex-col gap-2 items-center justify-center text-ink-muted text-xs cursor-pointer shrink-0 hover:bg-ink-soft transition-colors"
               onClick={() => fileRef.current?.click()}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -47,26 +47,26 @@ export default function TeamForm({ action, member }: Props) {
               name="photo"
               accept="image/jpeg,image/png,image/webp,image/avif"
               onChange={handleFileChange}
-              className="text-xs text-navy-300 file:mr-3 file:py-1.5 file:px-3 file:border-0 file:bg-navy-800 file:text-navy-200 file:cursor-pointer file:hover:bg-navy-700 file:transition-colors"
+              className="text-xs text-ink-muted file:mr-3 file:py-1.5 file:px-3 file:border-0 file:bg-ink-deep file:text-paper file:cursor-pointer file:hover:bg-ink-soft file:transition-colors"
             />
-            <p className="text-xs text-navy-500">JPEG, PNG, WebP, AVIF · max 8 MB</p>
-            {member && <p className="text-xs text-navy-500">Zostaw puste, by zachować obecne zdjęcie.</p>}
+            <p className="text-xs text-ink-muted">JPEG, PNG, WebP, AVIF · max 8 MB</p>
+            {member && <p className="text-xs text-ink-muted">Zostaw puste, by zachować obecne zdjęcie.</p>}
           </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="section-label text-navy-300">Imię i nazwisko <span className="text-red-400">*</span></label>
+        <label className="section-label text-ink-muted">Imię i nazwisko <span className="text-red-400">*</span></label>
         <input name="name" type="text" required defaultValue={member?.name ?? ""} className="input-field" />
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="section-label text-navy-300">Rola <span className="text-red-400">*</span></label>
+        <label className="section-label text-ink-muted">Rola <span className="text-red-400">*</span></label>
         <input name="role" type="text" required defaultValue={member?.role ?? ""} placeholder="np. Redaktor Naczelny" className="input-field" />
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="section-label text-navy-300">Grupa</label>
+        <label className="section-label text-ink-muted">Grupa</label>
         <select name="group" className="input-field" defaultValue={member?.group ?? "STAFF"}>
           <option value="STAFF">Zespół redakcyjny</option>
           <option value="CONTRIBUTOR">Stali współpracownicy</option>
@@ -74,10 +74,10 @@ export default function TeamForm({ action, member }: Props) {
       </div>
 
       <div className="flex gap-3 pt-2">
-        <button type="submit" className="section-label bg-brass-400 hover:bg-brass-300 text-navy-950 font-bold px-6 py-2.5 transition-colors">
+        <button type="submit" className="section-label bg-brass hover:bg-brass-bright text-paper font-bold px-6 py-2.5 transition-colors">
           Zapisz
         </button>
-        <a href="/admin/team" className="section-label text-navy-400 hover:text-paper border border-navy-700 hover:border-navy-500 px-6 py-2.5 transition-colors">
+        <a href="/admin/team" className="section-label text-ink-muted hover:text-ink border border-rule hover:border-ink-muted px-6 py-2.5 transition-colors">
           Anuluj
         </a>
       </div>

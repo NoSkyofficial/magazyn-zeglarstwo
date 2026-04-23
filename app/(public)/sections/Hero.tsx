@@ -19,62 +19,63 @@ export default function Hero() {
   };
 
   return (
-    <section id="start" style={{ position: "relative", minHeight: "100vh", overflow: "hidden", background: "var(--ink-deep)", color: "var(--paper)" }}>
+    <section id="start" className="relative min-h-screen overflow-hidden bg-ink-deep text-paper">
       {/* Parallax hero image */}
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: "url(/uploads/hero/hero.jpg)",
-        backgroundSize: "cover", backgroundPosition: "center 40%",
-        transform: `translateY(${scrollY * 0.3}px) scale(1.08)`,
-        willChange: "transform",
-        filter: "saturate(0.9)",
-      }} />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/uploads/hero/hero.jpg"
+          alt="Hero"
+          fill
+          priority
+          className="object-cover object-[center_40%]"
+          style={{
+            transform: `translateY(${scrollY * 0.3}px) scale(1.08)`,
+            filter: "saturate(0.9)",
+            willChange: "transform",
+          }}
+        />
+      </div>
+
       {/* Gradient overlay */}
-      <div style={{
-        position: "absolute", inset: 0,
-        background: "linear-gradient(180deg, rgba(7,18,34,0.45) 0%, rgba(7,18,34,0.1) 30%, rgba(7,18,34,0.35) 65%, rgba(7,18,34,0.92) 100%)",
-      }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(7,18,34,0.45)] via-[rgba(7,18,34,0.1)] via-[30%] via-[rgba(7,18,34,0.35)] via-[65%] to-[rgba(7,18,34,0.92)]" />
+
       {/* Top ruled line */}
-      <div style={{ position: "absolute", top: 120, left: 48, right: 48, height: 1, background: "rgba(245,241,232,0.2)", pointerEvents: "none" }} />
+      <div className="absolute top-[120px] left-12 right-12 h-px bg-white/20 pointer-events-none" />
 
       {/* Logo wordmark */}
-      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100%", maxWidth: 1400, textAlign: "center", zIndex: 10 }} className="pg">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] text-center z-10 pg">
         <Image
           src="/uploads/logo/logo-wide.png"
           alt="Żeglarstwo"
           width={1024}
           height={131}
           priority
-          style={{ objectFit: "contain", width: "min(800px, 90vw)", height: "auto", margin: "0 auto", transform: "translateX(2%)" }}
+          className="object-contain mx-auto translate-x-[2%]"
+          style={{ width: "min(800px, 90vw)", height: "auto" }}
         />
-        <div style={{ marginTop: 28, display: "flex", alignItems: "center", justifyContent: "center", gap: 20 }}>
-          <span style={{ height: 1, width: 60, background: "var(--brass-bright)", display: "inline-block" }} />
-          <span style={{ fontFamily: "var(--f-display)", fontStyle: "italic", fontSize: "clamp(16px, 3vw, 22px)", color: "var(--paper)", letterSpacing: "0.02em" }}>
+        <div className="mt-7 flex items-center justify-center gap-5">
+          <span className="h-px w-[60px] bg-brass-bright inline-block" />
+          <span className="font-gloock italic text-[clamp(16px,3vw,22px)] text-paper tracking-wider">
             Magazyn Miłośników Żagli
           </span>
-          <span style={{ height: 1, width: 60, background: "var(--brass-bright)", display: "inline-block" }} />
+          <span className="h-px w-[60px] bg-brass-bright inline-block" />
         </div>
       </div>
 
       {/* Bottom strip */}
-      <div className="pg" style={{
-        position: "absolute", left: 0, right: 0, bottom: 56,
-        maxWidth: 1400, margin: "0 auto",
-        display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "end", gap: 32,
-        width: "100%", boxSizing: "border-box",
-      }}>
-        <div style={{ color: "rgba(245,241,232,0.85)" }}>
+      <div className="pg absolute left-0 right-0 bottom-14 max-w-[1400px] mx-auto grid grid-cols-[1fr,auto,1fr] items-end gap-8 w-full box-border">
+        <div className="text-white/85">
           <div className="eyebrow eyebrow-light">Numer bieżący</div>
-          <div style={{ marginTop: 10, fontFamily: "var(--f-display)", fontSize: 28, lineHeight: 1.1, color: "var(--paper)" }}>
+          <div className="mt-2.5 font-gloock text-[28px] leading-[1.1] text-paper">
             Gdynia - Żeglarska Stolica Polski
           </div>
         </div>
-        <a href="#kiosk" onClick={go("kiosk")} className="btn btn-brass" style={{ alignSelf: "end" }}>
+        <a href="#kiosk" onClick={go("kiosk")} className="btn btn-brass self-end">
           Kup w kiosku <ArrowR />
         </a>
-        <div style={{ textAlign: "right", color: "rgba(245,241,232,0.65)", fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, flexDirection: "column" }}>
-            <div style={{ width: 1, height: 56, background: "rgba(245,241,232,0.4)" }} />
+        <div className="text-right text-white/65 text-[12px] tracking-[0.2em] uppercase">
+          <div className="inline-flex flex-col items-center gap-2.5">
+            <div className="w-px h-14 bg-white/40" />
             <span>Scroll</span>
           </div>
         </div>

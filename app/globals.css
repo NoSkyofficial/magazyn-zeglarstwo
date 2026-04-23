@@ -18,24 +18,7 @@
   --color-rust: #a0442b;
 
   --color-rule: #c8bfa8;
-
-  /* Legacy navy/brass scale kept so existing admin code still resolves */
-  --color-navy-50: #eef2f8;
-  --color-navy-100: #d3dcea;
-  --color-navy-200: #a7b8d4;
-  --color-navy-300: #7a95bf;
-  --color-navy-400: #4e71a9;
-  --color-navy-500: #2d4f88;
-  --color-navy-600: #1f3c6a;
-  --color-navy-700: #162b4c;
-  --color-navy-800: #0f1e36;
-  --color-navy-900: #0b1a2c;
-  --color-navy-950: #071222;
-  --color-brass-300: #d9b878;
-  --color-brass-400: #c9a35f;
-  --color-brass-500: #b08947;
-  --color-brass-600: #8a6a33;
-  --color-paper-dim: #d8d0bc;
+  --color-rule-dark: rgba(255, 255, 255, 0.18);
 
   /* Fonts — var(--italiana/--gloock/--worksans) injected by next/font/local on html element */
   --font-italiana: var(--italiana), Georgia, serif;
@@ -60,7 +43,7 @@
   --brass-deep: var(--color-brass-deep);
   --rust: var(--color-rust);
   --rule: var(--color-rule);
-  --rule-dark: rgba(255, 255, 255, 0.18);
+  --rule-dark: var(--color-rule-dark);
   --f-display: var(--font-gloock);
   --f-serif: var(--font-italiana);
   --f-sans: var(--font-worksans);

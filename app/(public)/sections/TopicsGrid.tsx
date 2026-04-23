@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { TopicArt, Compass } from "@/components/icons";
 
 type Topic = { id: string; slug: string; title: string; description: string; order: number; image: string };
 
 export default function TopicsGrid({ topics }: { topics: Topic[] }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]" style={{ borderTop: "1px solid var(--rule)", borderLeft: "1px solid var(--rule)" }}>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px] border-t border-l border-rule">
       {topics.map((t, i) => <TopicCard key={t.id} t={t} n={String(i + 1).padStart(2, "0")} />)}
     </div>
   );
@@ -14,47 +15,56 @@ export default function TopicsGrid({ topics }: { topics: Topic[] }) {
 
 function TopicCard({ t, n }: { t: Topic; n: string }) {
   const [hover, setHover] = useState(false);
+  
   return (
     <div
+      role="button"
+      tabIndex={0}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={{
-        position: "relative", aspectRatio: "4/3",
-        borderRight: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)",
-        overflow: "hidden", cursor: "pointer", background: "var(--ink-deep)", color: "var(--paper)",
-      }}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setHover(!hover); }}
+      className="relative aspect-[4/3] border-r border-b border-rule overflow-hidden cursor-pointer bg-ink-deep text-paper outline-none focus-visible:ring-2 focus-visible:ring-brass-bright z-0"
     >
       {/* Art */}
-      <div style={{
-        position: "absolute", inset: 0,
-        transform: hover ? "scale(1.05)" : "scale(1)",
-        transition: "transform .8s cubic-bezier(.2,.7,.3,1)",
-      }}>
+      <div 
+        className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.3,1)]"
+        style={{ transform: hover ? "scale(1.05)" : "scale(1)" }}
+      >
         <TopicArt slug={t.slug} />
         {t.image && t.image !== `/uploads/topics/${t.slug}.jpg` && (
-          <img src={t.image} alt={t.title} onError={(e) => { e.currentTarget.style.display = 'none'; }} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <Image
+            src={t.image}
+            alt={t.title}
+            fill
+            className="object-cover"
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
         )}
       </div>
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,18,34,0.2) 40%, rgba(7,18,34,0.85) 100%)" }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink-deep/20 from-[40%] to-ink-deep/85" />
 
       {/* Top corner */}
-      <div style={{ position: "absolute", top: 20, left: 24, right: 24, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontFamily: "var(--f-display)", fontSize: 14, color: "var(--brass-bright)", letterSpacing: "0.1em" }}>№ {n}</span>
+      <div className="absolute top-5 left-6 right-6 flex justify-between items-center">
+        <span className="font-gloock text-[14px] text-brass-bright tracking-widest">№ {n}</span>
         <Compass size={18} color="rgba(245,241,232,0.45)" />
       </div>
 
       {/* Bottom */}
-      <div style={{ position: "absolute", left: 24, right: 24, bottom: 24 }}>
-        <h3 style={{ fontFamily: "var(--f-display)", fontWeight: 400, fontSize: 30, lineHeight: 1.05, margin: 0, color: "var(--paper)", letterSpacing: "-0.005em" }}>
+      <div className="absolute left-6 right-6 bottom-6">
+        <h3 className="font-gloock font-normal text-[30px] leading-[1.05] m-0 text-paper tracking-tight">
           {t.title}
         </h3>
-        <div style={{
-          maxHeight: hover ? 200 : 0, opacity: hover ? 1 : 0,
-          overflow: "hidden",
-          transition: "max-height .5s cubic-bezier(.2,.7,.3,1), opacity .35s .1s, margin-top .4s",
-          marginTop: hover ? 14 : 0,
-        }}>
-          <p style={{ fontFamily: "var(--f-sans)", fontSize: 13, lineHeight: 1.55, color: "rgba(245,241,232,0.88)", margin: 0, paddingBottom: 4 }}>
+        <div 
+          className="overflow-hidden transition-[max-height,opacity,margin] duration-500 ease-[cubic-bezier(0.2,0.7,0.3,1)]"
+          style={{ 
+            maxHeight: hover ? "200px" : "0", 
+            opacity: hover ? 1 : 0,
+            marginTop: hover ? "14px" : "0"
+          }}
+        >
+          <p className="font-worksans text-[13px] leading-[1.55] text-paper/90 m-0 pb-1">
             {t.description}
           </p>
         </div>

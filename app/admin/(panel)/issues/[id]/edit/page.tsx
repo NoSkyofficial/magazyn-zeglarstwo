@@ -14,8 +14,8 @@ export default async function EditIssuePage({ params }: { params: Promise<{ id: 
 
   return (
     <div>
-      <h1 className="font-gloock text-2xl text-paper mb-2">Edytuj numer</h1>
-      <p className="text-sm text-navy-400 mb-8">{issue.label}</p>
+      <h1 className="font-gloock text-2xl text-ink mb-2">Edytuj numer</h1>
+      <p className="text-sm text-ink-muted mb-8">{issue.label}</p>
       <IssueForm action={action} issue={issue} />
     </div>
   );

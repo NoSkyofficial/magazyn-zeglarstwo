@@ -11,31 +11,31 @@ export default async function SettingsPage() {
   ]);
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
       {/* Publisher */}
-      <div className="admin-card" style={{ padding: 28 }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-          <h3>Dane wydawcy</h3>
-          <span className="chip" style={{ background: "rgba(42,119,80,.15)", color: "#2a7" }}>
-            <span className="chip-dot" style={{ background: "#2a7" }} /> Opublikowane
+      <div className="admin-card p-7">
+        <div className="flex items-baseline justify-between">
+          <h3 className="text-xl font-gloock text-ink">Dane wydawcy</h3>
+          <span className="chip bg-green-500/10 text-green-700 border border-green-200">
+            <span className="chip-dot bg-green-600" /> Aktywne
           </span>
         </div>
-        <form action={updateSettings} style={{ display: "grid", gap: 14, marginTop: 20 }}>
-          <Field label="Nazwa" name="publisherName" defaultValue={settings?.publisherName} />
-          <Field label="Adres" name="address" defaultValue={settings?.address} />
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+        <form action={updateSettings} className="grid gap-4 mt-5">
+          <Field label="Nazwa" name="publisherName" defaultValue={settings?.publisherName} required />
+          <Field label="Adres" name="address" defaultValue={settings?.address} required />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Telefon" name="phone" defaultValue={settings?.phone} />
-            <Field label="E-mail" name="email" type="email" defaultValue={settings?.email} />
+            <Field label="E-mail" name="email" type="email" defaultValue={settings?.email} required />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Facebook URL" name="facebookUrl" type="url" defaultValue={settings?.facebookUrl} />
             <Field label="Instagram URL" name="instagramUrl" type="url" defaultValue={settings?.instagramUrl} />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Prenumerata URL" name="subscriptionUrl" type="url" defaultValue={settings?.subscriptionUrl} />
             <Field label="Sklep URL" name="shopBaseUrl" type="url" defaultValue={settings?.shopBaseUrl} />
           </div>
-          <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
+          <div className="flex gap-2.5 justify-end mt-2">
             <button type="submit" className="btn btn-primary">
               <AdmIcon name="check" size={12} /> Zapisz zmiany
             </button>
@@ -44,19 +44,19 @@ export default async function SettingsPage() {
       </div>
 
       {/* Distributors */}
-      <div className="admin-card" style={{ padding: 28 }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-          <h3>Dystrybutorzy</h3>
+      <div className="admin-card p-7">
+        <div className="flex items-baseline justify-between">
+          <h3 className="text-xl font-gloock text-ink">Dystrybutorzy</h3>
         </div>
-        <div style={{ marginTop: 16, display: "flex", flexDirection: "column" }}>
+        <div className="mt-4 flex flex-col">
           {distributors.map((d, i) => (
-            <div key={d.id} style={{ display: "grid", gridTemplateColumns: "1fr 60px", alignItems: "center", padding: "12px 0", gap: 14, borderBottom: i < distributors.length - 1 ? "1px solid var(--rule)" : "none" }}>
+            <div key={d.id} className={`grid grid-cols-[1fr,60px] items-center py-3 gap-4 ${i < distributors.length - 1 ? "border-b border-rule" : ""}`}>
               <div>
-                <div style={{ fontSize: 14, fontWeight: 500, color: "var(--ink)" }}>{d.name}</div>
-                <div style={{ fontSize: 11, color: "var(--ink-muted)" }}>/uploads/distributors/{d.name.toLowerCase().replace(/\s+/g, "-")}.png</div>
+                <div className="text-sm font-medium text-ink">{d.name}</div>
+                <div className="text-[11px] text-ink-muted">/uploads/distributors/{d.name.toLowerCase().replace(/\s+/g, "-")}.png</div>
               </div>
-              <form action={deleteDistributor.bind(null, d.id)} style={{ display: "flex", justifyContent: "flex-end" }}>
-                <button type="submit" className="icon-btn">
+              <form action={deleteDistributor.bind(null, d.id)} className="flex justify-end">
+                <button type="submit" className="icon-btn hover:text-rust hover:border-rust transition-colors">
                   <AdmIcon name="trash" size={13} />
                 </button>
               </form>
@@ -64,27 +64,27 @@ export default async function SettingsPage() {
           ))}
         </div>
 
-        <form action={createDistributor} style={{ display: "flex", gap: 10, marginTop: 20 }}>
-          <input className="input" name="name" type="text" placeholder="Nazwa dystrybutora" required style={{ flex: 1 }} />
-          <button type="submit" className="btn btn-primary" style={{ padding: "10px 16px", fontSize: 10 }}>
+        <form action={createDistributor} className="flex gap-2.5 mt-5">
+          <input className="input flex-1" name="name" type="text" placeholder="Nazwa dystrybutora" required />
+          <button type="submit" className="btn btn-primary py-2.5 px-4 text-[10px]">
             <AdmIcon name="plus" size={12} /> Dodaj
           </button>
         </form>
 
-        <div style={{ marginTop: 24, padding: 16, background: "var(--paper-warm)", borderLeft: "3px solid var(--brass)" }}>
-          <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 4, color: "var(--ink)" }}>Komunikat dla czytelnika</div>
-          <div style={{ fontSize: 12, color: "var(--ink-muted)", lineHeight: 1.5 }}>Strona nie prowadzi sprzedaży — wszystkie CTA kierują do sklep.3oceans.pl.</div>
+        <div className="mt-6 p-4 bg-paper-warm border-l-4 border-brass">
+          <div className="text-[12px] font-bold mb-1 text-ink">Komunikat dla czytelnika</div>
+          <div className="text-[12px] text-ink-muted leading-relaxed">Strona nie prowadzi sprzedaży — wszystkie CTA kierują do sklep.3oceans.pl.</div>
         </div>
       </div>
     </div>
   );
 }
 
-function Field({ label, name, defaultValue, type = "text" }: { label: string; name: string; defaultValue?: string | null; type?: string }) {
+function Field({ label, name, defaultValue, type = "text", required = false }: { label: string; name: string; defaultValue?: string | null; type?: string; required?: boolean }) {
   return (
-    <div>
-      <label className="label" htmlFor={name}>{label}</label>
-      <input className="input" id={name} name={name} type={type} defaultValue={defaultValue ?? ""} />
+    <div className="flex flex-col gap-1.5">
+      <label className="label" htmlFor={name}>{label} {required && <span className="text-rust">*</span>}</label>
+      <input className="input" id={name} name={name} type={type} defaultValue={defaultValue ?? ""} required={required} />
     </div>
   );
 }

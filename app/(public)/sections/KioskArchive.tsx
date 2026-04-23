@@ -12,7 +12,7 @@ type Issue = {
 
 export default function KioskArchive({ archive }: { archive: Issue[] }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 24 }}>
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-6">
       {archive.map((issue, i) => <ArchiveCover key={issue.id} issue={issue} i={i} />)}
     </div>
   );
@@ -20,7 +20,7 @@ export default function KioskArchive({ archive }: { archive: Issue[] }) {
 
 function ArchiveCover({ issue, i }: { issue: Issue; i: number }) {
   const [hover, setHover] = useState(false);
-  const gradients = ["#0b1a2c", "#142232", "#1a2c44", "#0f1e30", "#1c2638", "#07111f"];
+  const gradients = ["bg-[#0b1a2c]", "bg-[#142232]", "bg-[#1a2c44]", "bg-[#0f1e30]", "bg-[#1c2638]", "bg-[#07111f]"];
 
   return (
     <a
@@ -29,16 +29,15 @@ function ArchiveCover({ issue, i }: { issue: Issue; i: number }) {
       rel="noopener noreferrer"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={{ textDecoration: "none", color: "inherit", display: "block" }}
+      className="no-underline text-inherit block outline-none"
     >
-      <div style={{
-        aspectRatio: "3/4", position: "relative", overflow: "hidden",
-        background: gradients[i % gradients.length],
-        border: "1px solid var(--brass)",
-        transform: hover ? "translateY(-6px)" : "translateY(0)",
-        transition: "transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s",
-        boxShadow: hover ? "0 24px 48px rgba(0,0,0,.5)" : "0 8px 20px rgba(0,0,0,.35)",
-      }}>
+      <div 
+        className={`aspect-[3/4] relative overflow-hidden border border-brass transition-all duration-500 ease-[cubic-bezier(0.2,0.7,0.3,1)] ${gradients[i % gradients.length]}`}
+        style={{ 
+          transform: hover ? "translateY(-6px)" : "translateY(0)",
+          boxShadow: hover ? "0 24px 48px rgba(0,0,0,.5)" : "0 8px 20px rgba(0,0,0,.35)"
+        }}
+      >
         <Image
           src={issue.coverImage}
           alt={`Numer ${issue.label}`}
@@ -47,9 +46,9 @@ function ArchiveCover({ issue, i }: { issue: Issue; i: number }) {
           sizes="160px"
         />
       </div>
-      <div style={{ marginTop: 14, paddingTop: 10, borderTop: "1px solid rgba(245,241,232,.14)", display: "flex", justifyContent: "space-between" }}>
-        <span style={{ fontFamily: "var(--f-sans)", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--brass-bright)" }}>Nr {issue.number}</span>
-        <span style={{ fontSize: 11, letterSpacing: "0.12em", color: "rgba(245,241,232,.6)" }}>{issue.label}</span>
+      <div className="mt-3.5 pt-2.5 border-t border-paper-line/10 flex justify-between">
+        <span className="font-worksans text-[11px] tracking-[0.16em] uppercase text-brass-bright font-semibold">Nr {issue.number}</span>
+        <span className="text-[11px] tracking-[0.12em] text-paper/60">{issue.label}</span>
       </div>
     </a>
   );
