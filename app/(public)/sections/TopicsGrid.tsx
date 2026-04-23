@@ -39,6 +39,7 @@ function TopicCard({ t, n }: { t: Topic; n: string }) {
             alt={t.title}
             fill
             className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />
         )}

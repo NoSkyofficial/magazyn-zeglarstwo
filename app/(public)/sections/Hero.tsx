@@ -28,6 +28,7 @@ export default function Hero() {
           fill
           priority
           className="object-cover object-[center_40%]"
+          sizes="100vw"
           style={{
             transform: `translateY(${scrollY * 0.3}px) scale(1.08)`,
             filter: "saturate(0.9)",
@@ -63,14 +64,14 @@ export default function Hero() {
       </div>
 
       {/* Bottom strip */}
-      <div className="pg absolute left-0 right-0 bottom-14 max-w-[1400px] mx-auto grid grid-cols-[1fr,auto,1fr] items-end gap-8 w-full box-border">
+      <div className="pg absolute left-0 right-0 bottom-14 max-w-[1400px] mx-auto grid grid-cols-[1fr_auto_1fr] items-end gap-8 w-full box-border">
         <div className="text-white/85">
           <div className="eyebrow eyebrow-light">Numer bieżący</div>
           <div className="mt-2.5 font-gloock text-[28px] leading-[1.1] text-paper">
             Gdynia - Żeglarska Stolica Polski
           </div>
         </div>
-        <a href="#kiosk" onClick={go("kiosk")} className="btn btn-brass self-end">
+        <a href="#kiosk" onClick={go("kiosk")} className="btn btn-brass w-fit self-end">
           Kup w kiosku <ArrowR />
         </a>
         <div className="text-right text-white/65 text-[12px] tracking-[0.2em] uppercase">
