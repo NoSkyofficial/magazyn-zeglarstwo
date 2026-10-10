@@ -27,3 +27,4 @@ tsconfig.tsbuildinfo
 /fix-db.js
 /fix-sqlite.js
 /scripts/
+/list-tables.js
