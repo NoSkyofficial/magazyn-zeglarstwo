@@ -11,11 +11,14 @@ dev.db
 dev.db-journal
 prisma/dev.db
 prisma/dev.db-journal
-public/uploads/*
-!public/uploads/.gitkeep
+public/uploads/
 
 *.log
 .DS_Store
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+.claude/
+CLAUDE.md
+tsconfig.tsbuildinfo
