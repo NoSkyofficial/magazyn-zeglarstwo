@@ -61,7 +61,6 @@ npm run dev
 
 Strona będzie dostępna pod `http://localhost:3000`, panel pod `http://localhost:3000/admin/login`. Logowanie używa `ADMIN_EMAIL` i `ADMIN_PASSWORD` z `.env`, zapisanych przez seed.
 
-> **TODO:** `db:generate` i `db:migrate` nie działają z obecnym `package.json`. Pakiet `prisma` (CLI) jest w wersji 6.19.3, a klient i `prisma.config.ts` są w wersji 7. Wymaga to ujednolicenia wersji (zmiana wersji głównej, osobne zadanie).
 
 ## Zmienne środowiskowe
 
