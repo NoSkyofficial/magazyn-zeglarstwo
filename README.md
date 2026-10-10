@@ -90,5 +90,6 @@ Lista zgodna z `.env.example`:
 
 ## TODO
 
+- **Dane kontaktowe:** seed zawiera placeholdery adresu, telefonu i e-maila. Uzupełnij je w panelu (Ustawienia).
 - **Seed i grafiki:** seed odwołuje się do plików w `/uploads/` (np. `placeholder-cover.jpg`, grafiki działów), których nie ma w repozytorium. Katalog `public/uploads/` jest ignorowany, więc po seedzie część grafik będzie brakować.
 - **Prisma CLI:** patrz uwaga w sekcji uruchomienia.

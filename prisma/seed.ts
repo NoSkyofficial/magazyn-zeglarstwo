@@ -40,9 +40,9 @@ async function seedSettings() {
     create: {
       id: "singleton",
       publisherName: "3 Oceans Sp. z o.o.",
-      address: "ul. Koszykowa 3/160, Warszawa",
-      phone: "+48 607 700 404",
-      email: "kontakt@magazyn-zeglarstwo.pl",
+      address: "ul. Przykładowa 1, 00-000 Warszawa",
+      phone: "+48 000 000 000",
+      email: "kontakt@example.com",
       facebookUrl: "https://www.facebook.com/magazyn.zeglarstwo/",
       instagramUrl: "https://www.instagram.com/magazyn.zeglarstwo/",
       subscriptionUrl: "https://sklep.3oceans.pl/prenumerata",
