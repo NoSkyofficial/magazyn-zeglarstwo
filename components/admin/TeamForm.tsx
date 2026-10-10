@@ -19,7 +19,6 @@ export default function TeamForm({ action, member }: Props) {
 
   return (
     <form action={action} className="flex flex-col gap-5">
-      {/* Photo upload */}
       <div className="flex flex-col gap-2">
         <label className="section-label text-ink-muted">Zdjęcie</label>
         <div className="flex gap-6 items-start">

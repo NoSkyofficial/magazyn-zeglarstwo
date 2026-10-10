@@ -20,7 +20,6 @@ export default function Hero() {
 
   return (
     <section id="start" className="relative min-h-screen overflow-hidden bg-ink-deep text-paper">
-      {/* Parallax hero image */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <Image
           src="/uploads/hero/hero.jpg"
@@ -37,13 +36,10 @@ export default function Hero() {
         />
       </div>
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(7,18,34,0.45)] via-[rgba(7,18,34,0.1)] via-[30%] via-[rgba(7,18,34,0.35)] via-[65%] to-[rgba(7,18,34,0.92)]" />
 
-      {/* Top ruled line */}
       <div className="absolute top-[120px] left-12 right-12 h-px bg-white/20 pointer-events-none" />
 
-      {/* Logo wordmark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1400px] text-center z-10 pg">
         <Image
           src="/uploads/logo/logo-wide.png"
@@ -63,7 +59,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom strip */}
       <div className="pg absolute left-0 right-0 bottom-14 max-w-[1400px] mx-auto grid grid-cols-[1fr_auto_1fr] items-end gap-8 w-full box-border">
         <div className="text-white/85">
           <div className="eyebrow eyebrow-light">Numer bieżący</div>

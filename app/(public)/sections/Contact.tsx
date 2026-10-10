@@ -24,7 +24,6 @@ export default async function Contact() {
         </div>
 
         <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1.4fr 0.9fr", gap: 72 }} data-reveal>
-          {/* Wydawca */}
           <div>
             <div className="eyebrow eyebrow-light">Wydawca</div>
             {settings && (
@@ -51,7 +50,6 @@ export default async function Contact() {
             )}
           </div>
 
-          {/* Dystrybucja */}
           <div>
             <div className="eyebrow eyebrow-light">Dystrybucja</div>
             <div style={{ marginTop: 16, fontFamily: "var(--f-serif)", fontSize: 16, lineHeight: 1.6, color: "rgba(245,241,232,.78)", maxWidth: 420 }}>
@@ -74,7 +72,6 @@ export default async function Contact() {
             </div>
           </div>
 
-          {/* Social */}
           <div>
             <div className="eyebrow eyebrow-light">Społeczność</div>
             <div style={{ marginTop: 16, fontFamily: "var(--f-serif)", fontSize: 16, lineHeight: 1.6, color: "rgba(245,241,232,.78)" }}>

@@ -13,7 +13,6 @@ export default async function PagesAdmin() {
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 20 }}>
-      {/* Sidebar */}
       <aside className="admin-card" style={{ padding: 16 }}>
         <div className="eyebrow" style={{ fontSize: 10 }}>Strony</div>
         <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 2 }}>
@@ -28,7 +27,6 @@ export default async function PagesAdmin() {
         </div>
       </aside>
 
-      {/* Editor */}
       {PAGES.map((p) => {
         const action = updatePageContent.bind(null, p.slug);
         return (

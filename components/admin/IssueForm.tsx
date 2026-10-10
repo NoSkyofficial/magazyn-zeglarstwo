@@ -23,7 +23,6 @@ export default function IssueForm({ action, issue }: Props) {
   return (
     <form action={action}>
       <div className="admin-card p-7 grid grid-cols-1 md:grid-cols-[240px,1fr] gap-8">
-        {/* Cover */}
         <div>
           <label className="label">Okładka {!issue && <span className="text-rust">*</span>}</label>
           <div 
@@ -55,7 +54,6 @@ export default function IssueForm({ action, issue }: Props) {
           </div>
         </div>
 
-        {/* Fields */}
         <div className="flex flex-col gap-[18px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>

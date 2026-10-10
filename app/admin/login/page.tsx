@@ -12,7 +12,6 @@ export default async function LoginPage() {
 
   return (
     <div style={{ height: "100dvh", display: "grid", gridTemplateColumns: "1fr 1fr", background: "var(--paper)" }}>
-      {/* Left — form */}
       <div style={{ display: "flex", flexDirection: "column", padding: "48px 64px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <Image src="/uploads/logo/logo.png" alt="Żeglarstwo" width={160} height={22} style={{ objectFit: "contain", width: "auto", height: "auto" }} />
@@ -34,7 +33,6 @@ export default async function LoginPage() {
         </div>
       </div>
 
-      {/* Right — hero image */}
       <div style={{ position: "relative", overflow: "hidden", background: "var(--ink-deep)" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url(/uploads/hero/hero.jpg)", backgroundSize: "cover", backgroundPosition: "center", filter: "saturate(0.8)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,18,34,0.2), rgba(7,18,34,0.85))" }} />

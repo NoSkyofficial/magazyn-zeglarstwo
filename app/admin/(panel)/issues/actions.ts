@@ -68,7 +68,6 @@ export async function updateIssue(id: string, formData: FormData) {
     isCurrent:   formData.get("isCurrent") === "on",
   });
 
-  // Optional new cover
   const coverFile = formData.get("coverImage");
   let coverImage: string | undefined;
   if (coverFile instanceof File && coverFile.size > 0) {

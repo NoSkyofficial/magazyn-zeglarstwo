@@ -65,7 +65,6 @@ export default function Nav() {
 
         <div style={{ flex: 1 }} />
 
-        {/* Desktop links */}
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }} className="hidden md:flex gap-8">
           {NAV_LINKS.map((n) => (
             <li key={n.href}>
@@ -92,7 +91,6 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Mobile burger */}
         <button
           className="flex md:hidden flex-col gap-[6px]"
           onClick={() => setOpen(!open)}
@@ -105,7 +103,6 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div style={{ background: "rgba(11,26,44,0.98)", borderTop: "1px solid rgba(255,255,255,0.1)", padding: "24px 48px" }} className="flex md:hidden flex-col gap-5">
           {NAV_LINKS.map((n) => (

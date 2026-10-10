@@ -31,7 +31,6 @@ export default async function Kiosk() {
 
         {current && (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(32px, 6vw, 80px)", alignItems: "center" }} data-reveal>
-            {/* Cover */}
             <div style={{ position: "relative" }}>
               <div style={{
                 position: "absolute", top: -18, left: -18, right: -18, bottom: -18,
@@ -50,7 +49,6 @@ export default async function Kiosk() {
               </div>
             </div>
 
-            {/* Info */}
             <div>
               <div className="eyebrow eyebrow-light">Numer bieżący · w sprzedaży</div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 16, marginTop: 16 }}>

@@ -12,7 +12,6 @@ export default async function SettingsPage() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-      {/* Publisher */}
       <div className="admin-card p-7">
         <div className="flex items-baseline justify-between">
           <h3 className="text-xl font-gloock text-ink">Dane wydawcy</h3>
@@ -43,7 +42,6 @@ export default async function SettingsPage() {
         </form>
       </div>
 
-      {/* Distributors */}
       <div className="admin-card p-7">
         <div className="flex items-baseline justify-between">
           <h3 className="text-xl font-gloock text-ink">Dystrybutorzy</h3>

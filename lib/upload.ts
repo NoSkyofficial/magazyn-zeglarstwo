@@ -9,7 +9,7 @@ const ALLOWED_TYPES = {
   "image/avif": "avif",
 };
 const ALLOWED_FOLDERS = ["hero", "covers", "issues", "team", "topics", "distributors", "misc", "logo"];
-const MAX_SIZE_BYTES = 8 * 1024 * 1024; // 8 MB
+const MAX_SIZE_BYTES = 8 * 1024 * 1024;
 
 export async function saveUpload(file: File, subfolder: string): Promise<string> {
   if (!(file.type in ALLOWED_TYPES)) {

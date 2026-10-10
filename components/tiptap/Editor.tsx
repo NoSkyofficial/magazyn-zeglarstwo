@@ -58,7 +58,6 @@ export default function Editor({ name, defaultValue }: Props) {
 
   return (
     <div className="border border-navy-700 bg-paper focus-within:border-brass-500 transition-colors">
-      {/* Toolbar */}
       <div className="flex flex-wrap gap-1 p-2 border-b border-navy-800">
         {TOOLBAR.map((btn) => (
           <button
@@ -71,7 +70,6 @@ export default function Editor({ name, defaultValue }: Props) {
           </button>
         ))}
       </div>
-      {/* Editor area */}
       <EditorContent editor={editor} />
       {/* Hidden JSON value submitted with form */}
       <input type="hidden" name={name} value={json} readOnly />

@@ -30,7 +30,6 @@ export default async function AdminDashboard() {
 
   return (
     <div style={{ maxWidth: 1100 }}>
-      {/* Welcome row */}
       <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 20, marginBottom: 20 }}>
         <div className="admin-card" style={{ padding: 24, display: "flex", alignItems: "center", gap: 24, background: "var(--ink)", color: "var(--paper)", border: "none" }}>
           {current && (
@@ -64,7 +63,6 @@ export default async function AdminDashboard() {
         </div>
       </div>
 
-      {/* Stats */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginBottom: 28 }}>
         {stats.map((s) => (
           <div key={s.label} className="admin-card" style={{ padding: 24, position: "relative", overflow: "hidden" }}>
@@ -78,7 +76,6 @@ export default async function AdminDashboard() {
         ))}
       </div>
 
-      {/* Quick action cards */}
       <div className="admin-card" style={{ padding: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 14 }}>
           <h3>Szybkie akcje</h3>
