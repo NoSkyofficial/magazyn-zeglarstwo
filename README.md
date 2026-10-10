@@ -42,7 +42,6 @@ components/       nawigacja, stopka, formularze panelu, edytor TipTap
 lib/              auth.ts, prisma.ts, upload.ts
 prisma/           schema.prisma, migracje, seed.ts
 proxy.ts          ochrona /admin (w Next.js 16 odpowiednik middleware.ts)
-scripts/          skrypty pomocnicze do przeniesienia zasobów i danych (patrz TODO)
 ```
 
 ## Wymagania
@@ -93,4 +92,3 @@ Lista zgodna z `.env.example`:
 
 - **Seed i grafiki:** seed odwołuje się do plików w `/uploads/` (np. `placeholder-cover.jpg`, grafiki działów), których nie ma w repozytorium. Katalog `public/uploads/` jest ignorowany, więc po seedzie część grafik będzie brakować.
 - **Prisma CLI:** patrz uwaga w sekcji uruchomienia.
-- **scripts/:** skrypty PowerShell pobierają zasoby ze starej strony WordPress; `index.html` to zapisana strona WordPress, a `media.txt` to lista adresów jej zasobów. Do decyzji, czy zostają w repozytorium.
