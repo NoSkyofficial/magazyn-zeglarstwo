@@ -22,3 +22,8 @@ public/uploads/
 .claude/
 CLAUDE.md
 tsconfig.tsbuildinfo
+
+# usunięte z repozytorium, pliki zostają lokalnie
+/fix-db.js
+/fix-sqlite.js
+/scripts/
